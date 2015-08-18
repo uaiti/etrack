@@ -2,19 +2,19 @@
 
 	global.$ = global.$ || function (query) {
 
-		global.$.param = function(obj, prefix) {
-			var str = [];
-			for(var p in obj) {
-				var k = prefix ? prefix + "[" + p + "]" : p, v = obj[p];
-				if(v){
-					str.push(typeof v == "object" ?global.$.param(v, k) : encodeURIComponent(k) + "=" + encodeURIComponent(v));
-				}
-			}
-			return str.join("&");
-		}
-
 		return document.querySelectorAll(query);
 	};
+
+	global.$.param = global.$.param || function(obj, prefix) {
+		var str = [];
+		for(var p in obj) {
+			var k = prefix ? prefix + "[" + p + "]" : p, v = obj[p];
+			if(v){
+				str.push(typeof v == "object" ?global.$.param(v, k) : encodeURIComponent(k) + "=" + encodeURIComponent(v));
+			}
+		}
+		return str.join("&");
+	}
 
 	function eTrack(srv_addr, $) {
 		this.session = null;
