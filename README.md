@@ -15,11 +15,13 @@ Usage
 
 To use eTrack you will need nodejs and npm to be installed. To start your server:
 
-	$ git clone https://github.com/charlesschaefer/etrack.git etrack
-	$ cd etrack
-	$ npm -d install
-	$ node app.js
-	Express server listening on port 3030 in development mode
+```shell
+$ git clone https://github.com/charlesschaefer/etrack.git etrack
+$ cd etrack
+$ npm -d install
+$ node app.js
+Express server listening on port 3030 in development mode
+```
 
 In your application HTML, you need to call the etrack.js file:
 
