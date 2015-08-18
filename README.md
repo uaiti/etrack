@@ -39,6 +39,19 @@ You can also trigger an action manually, calling the save() method:
 	<a href="#awesome_action" onclick="track.save('awesome_action')">Be surprised</a>
 
 
+Functional Example
+------------------
+
+```javascript
+var track = new eTrack('http://localhost:3030/track/', jQuery);
+track.trackLinks('action'); // will catch the data-action="" attribute
+track.setSession('etrack-user');
+track.setCustomer('new-customer');
+track.setPlayer('the-computer-id');
+track.save("startingAPP", {productId: 12, dayOfMonth: (new Date()).getDate()});
+```
+
+
 
 Fetching Data by Context
 ------------------------
