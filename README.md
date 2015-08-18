@@ -28,7 +28,7 @@ In your application HTML, you need to call the etrack.js file:
 You can listen to your user actions automatically by using the eTrack's trackLinks() function:
 
 	<script type="text/javascript">
-		var track = new eTrack('http://localhost:3030/track/');
+		var track = new eTrack('http://localhost:3030/track/', jQuery);
 		track.trackLinks('action'); // will catch the data-action="" attribute
 	</script>
 	<!-- ..... -->
@@ -39,3 +39,26 @@ You can also trigger an action manually, calling the save() method:
 	<a href="#awesome_action" onclick="track.save('awesome_action')">Be surprised</a>
 
 
+
+Fetching Data by Context
+------------------------
+
+Consider the document:
+```json
+{
+	action: "show",
+	user: "john",
+	context: [{
+		name: "product",
+		value: "12"
+	},{
+		name: "service",
+		value: "18"
+	}]
+}
+```
+
+To fetch only the documents where context is of product=12, you should use the following query:
+```js
+db.tracks.find({"context": {$elemMatch: {"name":"product", "value": "12"}}});
+```
