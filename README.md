@@ -23,20 +23,26 @@ To use eTrack you will need nodejs and npm to be installed. To start your server
 
 In your application HTML, you need to call the etrack.js file:
 
-	<script type="text/javascript" src="http://localhost:3030/javascripts/etrack.js"></script>
+```html
+<script type="text/javascript" src="http://localhost:3030/javascripts/etrack.js"></script>
+```
 
 You can listen to your user actions automatically by using the eTrack's trackLinks() function:
 
-	<script type="text/javascript">
-		var track = new eTrack('http://localhost:3030/track/', jQuery);
-		track.trackLinks('action'); // will catch the data-action="" attribute
-	</script>
-	<!-- ..... -->
-	<a href="an_awesome_page.html" data-action="awesome_page">Visit this awesome Page</a>
+```html
+<script type="text/javascript">
+	var track = new eTrack('http://localhost:3030/track/', jQuery);
+	track.trackLinks('action'); // will catch the data-action="" attribute
+</script>
+<!-- ..... -->
+<a href="an_awesome_page.html" data-action="awesome_page">Visit this awesome Page</a>
+```
 
 You can also trigger an action manually, calling the save() method:
 
-	<a href="#awesome_action" onclick="track.save('awesome_action')">Be surprised</a>
+```html
+<a href="#awesome_action" onclick="track.save('awesome_action')">Be surprised</a>
+```
 
 
 Functional Example
@@ -59,14 +65,14 @@ Fetching Data by Context
 Consider the document:
 ```json
 {
-	action: "show",
-	user: "john",
-	context: [{
-		name: "product",
-		value: "12"
+	"action": "show",
+	"user": "john",
+	"context": [{
+		"name": "product",
+		"value": "12"
 	},{
-		name: "service",
-		value: "18"
+		"name": "service",
+		"value": "18"
 	}]
 }
 ```
