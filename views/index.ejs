@@ -1,2 +1,12 @@
 <h1><%= title %></h1>
 <p>Welcome to <%= title %></p>
+
+<a href="#" onclick="track.save('product', {product: 12})">Test it</a>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/javascripts/etrack.js"></script>
+<script type="text/javascript">
+	var track = new eTrack('http://localhost:3030/track/', $);
+	track.setSession('etrack-user');
+	track.trackLinks('action'); // 
+</script>
