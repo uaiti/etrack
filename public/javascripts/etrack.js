@@ -25,24 +25,37 @@
 		var that = this;
 		var address = (srv_addr ? srv_addr : 'http://localhost:3030/track/');
 
-		function connect(addr) {
+		function connect(addr, callback) {
 			var script = document.createElement('script');
 			script.setAttribute('type', 'text/javascript');
 			script.setAttribute('src', addr);
+
 			script.onload = function() {
-			};
+				document.body.removeChild(script);
+
+				if(typeof(callback) == 'function')
+					callback(null);
+			}
+
+			script.onerror = function(err) {
+				document.body.removeChild(script);
+
+				if(typeof(callback) == 'function')
+					callback(err);
+			}
+
 			document.body.appendChild(script);
 		}
 
 		// saves the action user executed
 		// {action} is a string that makes sense to your system
-		this.save = function(action, context) {
+		this.save = function(action, context, callback) {
 			var addr = address + action + '/' + this.session;
 
 			var params = {customer: that.customer, player: that.player, action: that.action, context: context};
 			addr += "?" + global.$.param(params);
 
-			connect(addr);
+			connect(addr, callback);
 		};
 
 		// tracks the links with data-action="" automatically
