@@ -14,7 +14,7 @@
 			}
 		}
 		return str.join("&");
-	}
+	};
 
 	function eTrack(srv_addr, $) {
 		this.session = null;
@@ -52,8 +52,7 @@
 		this.save = function(action, context, callback) {
 			var addr = address + action + '/' + this.session;
 
-			var params = {customer: that.customer, player: that.player, context: context};
-			console.log(params)
+			var params = {customer: that.customer, player: that.player, action: that.action, context: context};
 			addr += "?" + global.$.param(params);
 
 			connect(addr, callback);
@@ -80,7 +79,10 @@
 		this.setPlayer = function(player) {
 			that.player = player;
 		};
-	};
+		this.setAction = function(action) {
+			that.action = action;
+		};
+	}
 
 	// expose access to the constructor
 	window.eTrack = eTrack;
