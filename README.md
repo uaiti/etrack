@@ -1,7 +1,7 @@
 REAME
 ==========
 
-eTrack is a nodejs application to capture basic metrics for your software. 
+eTrack is a nodejs application to capture basic metrics for your software.
 
 You can set the links your user accessed and actions he executed by calling a function that saves the action in a mongodb collection.
 
@@ -56,6 +56,7 @@ track.trackLinks('action'); // will catch the data-action="" attribute
 track.setSession('etrack-user');
 track.setCustomer('new-customer');
 track.setPlayer('the-computer-id');
+track.setAction('the-action');
 track.save("startingAPP", {productId: 12, dayOfMonth: (new Date()).getDate()});
 ```
 
