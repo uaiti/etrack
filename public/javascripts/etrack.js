@@ -14,7 +14,7 @@
 			}
 		}
 		return str.join("&");
-	}
+	};
 
 	function eTrack(srv_addr, $) {
 		this.session = null;
@@ -30,8 +30,7 @@
 			script.setAttribute('type', 'text/javascript');
 			script.setAttribute('src', addr);
 			script.onload = function() {
-				console.log('registered');
-			}
+			};
 			document.body.appendChild(script);
 		}
 
@@ -41,7 +40,6 @@
 			var addr = address + action + '/' + this.session;
 
 			var params = {customer: that.customer, player: that.player, action: that.action, context: context};
-			console.log(params);
 			addr += "?" + global.$.param(params);
 
 			connect(addr);
@@ -71,7 +69,7 @@
 		this.setAction = function(action) {
 			that.action = action;
 		};
-	};
+	}
 
 	// expose access to the constructor
 	window.eTrack = eTrack;
