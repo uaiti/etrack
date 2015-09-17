@@ -52,7 +52,7 @@
 		this.save = function(action, context, callback) {
 			var addr = address + action + '/' + this.session;
 
-			var params = {customer: that.customer, player: that.player, action: that.action, context: context};
+			var params = {customer: that.customer, player: that.player, route: that.route, context: context};
 			addr += "?" + global.$.param(params);
 
 			connect(addr, callback);
@@ -79,8 +79,8 @@
 		this.setPlayer = function(player) {
 			that.player = player;
 		};
-		this.setAction = function(action) {
-			that.action = action;
+		this.setRoute = function(route) {
+			that.route = route;
 		};
 	}
 
