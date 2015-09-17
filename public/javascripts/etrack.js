@@ -40,8 +40,8 @@
 		this.save = function(action, context) {
 			var addr = address + action + '/' + this.session;
 
-			var params = {customer: that.customer, player: that.player, context: context};
-			console.log(params)
+			var params = {customer: that.customer, player: that.player, action: that.action, context: context};
+			console.log(params);
 			addr += "?" + global.$.param(params);
 
 			connect(addr);
@@ -67,6 +67,9 @@
 		};
 		this.setPlayer = function(player) {
 			that.player = player;
+		};
+		this.setAction = function(action) {
+			that.action = action;
 		};
 	};
 
