@@ -9,6 +9,7 @@ var ContextSchema = new mongoose.Schema({
 var TrackSchema = new mongoose.Schema({
     user     : 'string',
     action   : 'string',
+    route    : 'string',
     customer : 'string',
     player   : 'string',
     context  : [ContextSchema],
