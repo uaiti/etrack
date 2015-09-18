@@ -6,12 +6,12 @@ exports.track = function(req, res) {
 	    context, track;
 
 	track = {
-		user: session, 
+		user: session,
 		action: type
 	};
 
 	// gets the customer and player querystring parameters
-	_getParams(track, req, ['customer', 'player']);
+	_getParams(track, req, ['customer', 'player', 'route']);
 
 	// prepares the context array
 	context = req.query['context'];
